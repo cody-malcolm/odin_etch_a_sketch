@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cody Malcolm's Loaded Etch-A-Sketch</title>
+    <script src="https://kit.fontawesome.com/acebcbab7a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div id="leftside">
+      <div class="title">
+        <h1>Board Settings</h1>
+      </div>
+      <div class="settings">
+        <div id="size-container">
+          <label for="size-slider" class="board-text">Size:</label>
+          <input type="range" min="8" max="100" value="16" id="size-slider" name="size-slider">
+          <span class="board-text">16</span>
+        </div>
+        <div id="bg-color-container">
+          <label for="bg-color" class="board-text">Color:</label>
+          <input type="color" id="bg-color" value="#FFFFFF" name="bg-color">
+        </div>
+      </div>
+      <div id="buttons">
+        <button type="button" name="reset-button" id="reset-button">Clear</button>
+        <button type="button" name="apply-button" id="apply-button">Apply</button>
+      </div>
+    </div>
+    <div id="middle">
+      <div id="grid">
+
+      </div>
+    </div>
+    <div id="rightside">
+      <div class="title">
+        <h1>Brush Settings</h1>
+      </div>
+      <div class="settings">
+        <div id="black-brush-container">
+          <i class="fas fa-palette"></i>
+        </div>
+        <div id="color-brush-container">
+          <i class="fas fa-palette"></i>
+        </div>
+        <div id="rainbow-brush-container">
+          <i class="fas fa-palette"></i>
+        </div>
+      </div>
+      <div id="toggles">
+        <div id="shader-container">
+          <i class="fas fa-paint-brush" id="shader-toggle" data-checked="false"></i>
+        </div>
+        <div id="solid-container">
+          <i class="fas fa-paint-brush" id="solid-toggle" data-checked="true"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<i class="fas fa-palette"></i>
