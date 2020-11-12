@@ -1,0 +1,66 @@
+div {
+  border: 1px solid black;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  font-size: 5em;
+}
+
+#middle {
+  height: 90vh;
+  width: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#grid {
+  height: 90%;
+  width: 90%;
+}
+
+#leftside, #rightside {
+  height: 70vh;
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+#brush-color {
+  display: none;
+}
+
+.title, #buttons, #toggles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.size-container, #bg-color-container, #black-brush-container, #solid-container,
+#color-brush-container, #rainbow-brush-container, #shader-container  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min-content;
+}
+
+.fa-palette, .fa-paint-brush {
+  font-size: 5em;
+}
