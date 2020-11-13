@@ -46,4 +46,8 @@ export class Color {
   toString() {
     return `rgb(${this.r}, ${this.g}, ${this.b})`;
   }
+
+  getComplement() {
+    return new Color(255-this.r, 255-this.g, 255-this.b);
+  }
 }

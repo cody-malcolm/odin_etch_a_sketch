@@ -74,14 +74,12 @@ function updateGridlines() {
   let border = "none";
 
   if (solidGrid) {
-    border = "1px solid black";
+    border = `1px solid ${bgColor.getComplement().toString()}`;
   } else if (dottedGrid) {
-    border = "1px dotted black";
+    border = `1px dotted ${bgColor.getComplement().toString()}`;
   }
 
   document.querySelectorAll('.square').forEach(s => s.style.border = border);
-
-  console.log("called");
 }
 
 function handleDottedGridClick() {
