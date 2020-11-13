@@ -72,9 +72,15 @@ function updatePenDisplay() {
 }
 
 function togglePen() {
+  const pens = ['brush', 'eraser', 'none'];
+  mid.classList.remove(pens[penType]);
+
   penType++;
   penType %= 3;
 
+  mid.classList.add(pens[penType]);
+
+  console.log(mid.classList);
   updatePenDisplay();
 }
 
