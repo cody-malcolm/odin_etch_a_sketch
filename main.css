@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Juicebox";
+  src: url(fonts/Juicebox.otf);
+}
+
 div {
   border: 1px solid black;
 }
@@ -7,11 +12,29 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: hsl(60, 10%, 75%);
 }
 
 h1 {
   text-align: center;
   font-size: 5em;
+  color: hsl(60, 10%, 20%);
+  font-family: "Juicebox";
+}
+
+p, label, span {
+  font-size: 1.5em;
+  color: hsl(60, 10%, 20%);
+  font-family: "Juicebox";
+}
+
+#size-slider {
+  color: hsl(60, 10%, 20%);
+  height: 2em;
+}
+
+.board-text {
+  margin-right: 1em;
 }
 
 #middle {
@@ -25,6 +48,15 @@ h1 {
 #grid {
   height: 90%;
   width: 90%;
+  display: grid;
+}
+
+#instructions {
+  width: 80%;
+}
+
+.instruction-text {
+  text-align: justify;
 }
 
 #leftside, #rightside {
@@ -34,11 +66,16 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
 }
 
 #brush-color {
   display: none;
+}
+
+#rainbow-toggle {
+  background: linear-gradient(to bottom left, blue, purple, red, orange, yellow, green, blue, purple, red);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .title, #buttons, #toggles {
@@ -47,10 +84,14 @@ h1 {
   align-items: center;
 }
 
-.settings {
+#left-settings, #palette-container, #pen-display {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#right-settings {
+  display: flex;
 }
 
 .size-container, #bg-color-container, #black-brush-container, #solid-container,
@@ -61,6 +102,21 @@ h1 {
   width: min-content;
 }
 
-.fa-palette, .fa-paint-brush {
+#shader-container {
+  color: #808080;
+}
+
+.fas, .far {
   font-size: 5em;
+  border-radius: 50%;
+  padding: 0.25em;
+  margin: 3px;
+}
+
+.pen-setting {
+  color: #808080;
+}
+
+.square {
+
 }
