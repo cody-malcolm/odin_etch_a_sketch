@@ -133,9 +133,11 @@ function handleDragClick(e) {
   if (defaultDraw) {
     document.getElementById('drag-container').style.color = '#808080';
     instructions.textContent = "Click anywhere within the center area to toggle pen mode";
+    mid.addEventListener('click', togglePen);
   } else {
     document.getElementById('drag-container').style.color = '#000000';
     instructions.textContent = "Click and drag to draw";
+    mid.removeEventListener('click', togglePen);
   }
 }
 
@@ -228,12 +230,18 @@ function getColor(oldColor) {
 }
 
 function handleMouseEnter(e) {
-  if (penType == 2) return;
+  if (penType == 2 || (!defaultDraw && e.buttons != 1)) return;
   e.target.style.backgroundColor = getColor(e.target.style.backgroundColor);
 }
 
 function clearGrid() {
   while (grid.firstChild) grid.removeChild(grid.firstChild);
+}
+
+function handleMouseDown(e) {
+  if (!defaultDraw && penType != 2) {
+    e.target.style.backgroundColor = getColor(e.target.style.backgroundColor);
+  }
 }
 
 function populateGrid(n) {
@@ -245,7 +253,10 @@ function populateGrid(n) {
 
   grid.style.gridTemplate = `repeat(${n}, 1fr) / repeat(${n}, 1fr)`;
 
-  grid.querySelectorAll('.square').forEach(s => s.addEventListener('mouseenter', handleMouseEnter));
+  const squares = grid.querySelectorAll('.square');
+
+  squares.forEach(s => s.addEventListener('mouseenter', handleMouseEnter));
+  squares.forEach(s => s.addEventListener('mousedown', handleMouseDown));
 }
 
 
