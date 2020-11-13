@@ -10,7 +10,7 @@
   <body>
     <div id="leftside">
       <div class="title">
-        <h1>Board Settings</h1>
+        <h1 id="left-title">Board Settings</h1>
       </div>
       <div id="instructions">
         <p class="instruction-text">Click anywhere within the center area to toggle pen mode</p>
@@ -40,7 +40,7 @@
     </div>
     <div id="rightside">
       <div class="title">
-        <h1>Brush Settings</h1>
+        <h1 id="right-title">Brush Settings</h1>
       </div>
       <div id="right-settings">
         <div id="palette-container">
@@ -57,19 +57,19 @@
         </div>
         <div id="pen-display">
           <div id="pen-container">
-            <i class="fas fa-paint-brush pen-setting"></i>
+            <i class="fas fa-paint-brush pen-setting clickable"></i>
           </div>
           <div id="eraser-container">
-            <i class="fas fa-eraser pen-setting"></i>
+            <i class="fas fa-eraser pen-setting clickable"></i>
           </div>
           <div id="null-container">
-            <i class="far fa-times-circle pen-setting"></i>
+            <i class="far fa-times-circle pen-setting clickable"></i>
           </div>
         </div>
       </div>
       <div id="toggles">
-        <div id="shader-container" class="icon-container">
-          <i class="fas fa-paint-brush clickable" id="shader-toggle"></i>
+        <div id="drag-container" class="icon-container">
+          <i class="fas fa-mouse clickable" id="drag-toggle"></i>
         </div>
         <div id="solid-container" class="icon-container">
           <i class="fas fa-paint-brush clickable" id="solid-toggle"></i>

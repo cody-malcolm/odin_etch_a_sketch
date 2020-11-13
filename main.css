@@ -14,7 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: hsl(60, 10%, 75%);
+  background-color: hsl(60, 10%, 50%);
 }
 
 h1 {
@@ -30,9 +30,21 @@ p, label, span, button {
   font-family: "Juicebox";
 }
 
+#right-title {
+  padding-right: 0.25em;
+}
+
+#left-title {
+  padding-left: 0.25em;
+}
+
 #buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+}
+
+#apply-button {
+  margin-left: 0.5em;
 }
 
 button {
@@ -47,8 +59,33 @@ button:hover {
 }
 
 #size-slider {
-  color: hsl(60, 10%, 20%);
-  height: 2em;
+  height: 0.5em;
+  width: 100%;
+  -webkit-appearance: none;
+  background: hsl(60, 10%, 65%);
+}
+
+#size-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.5em;
+  height: 1.5em;
+  background: hsl(60, 10%, 30%);
+  cursor: pointer;
+}
+
+#size-slider::-moz-range-thumb {
+  width: 0.5em;
+  height: 1.5em;
+  background: hsl(60, 10%, 30%);
+  cursor: pointer;
+}
+
+.size-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
 }
 
 .board-text {
@@ -61,6 +98,8 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: hsl(60, 10%, 75%);
+  border-radius: 5%;
 }
 
 #grid {
@@ -71,6 +110,9 @@ button:hover {
 
 #instructions {
   width: 80%;
+  height: 6em;
+  display: flex;
+  align-items: center;
 }
 
 .instruction-text {
@@ -78,16 +120,25 @@ button:hover {
 }
 
 #left-settings > * {
-  margin: 0.25em 0;
+  margin: 0.5em 0;
 }
 
 #leftside, #rightside {
-  height: 70vh;
+  height: 80vh;
   width: min-content;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  background-color: hsl(60, 10%, 75%);
+}
+
+#leftside {
+  border-radius: 25% 0 0 25%;
+}
+
+#rightside {
+  border-radius: 0 25% 25% 0;
 }
 
 #rainbow-toggle {
@@ -112,12 +163,16 @@ button:hover {
   display: flex;
 }
 
-.size-container, #bg-color-container, #black-brush-container, #solid-container,
-#color-brush-container, #rainbow-brush-container, #shader-container  {
+#bg-color-container, #black-brush-container, #solid-container,
+#color-brush-container, #rainbow-brush-container, #drag-container  {
   display: flex;
   justify-content: center;
   align-items: center;
   width: min-content;
+}
+
+#bg-color-container {
+  margin-top: 2em;
 }
 
 #color-brush-container {
@@ -140,7 +195,7 @@ button:hover {
   height: 2em;
 }
 
-#shader-container {
+#drag-container {
   color: #808080;
 }
 
@@ -153,10 +208,6 @@ button:hover {
 
 .pen-setting {
   color: #808080;
-}
-
-.square {
-
 }
 
 .brush:hover {
@@ -174,4 +225,3 @@ button:hover {
 .clickable:hover {
   cursor: pointer;
 }
-/* TODO: Find the weird div in rightside */

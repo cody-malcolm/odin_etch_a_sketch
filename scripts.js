@@ -3,9 +3,8 @@ const colorBrush = document.getElementById('color-toggle');
 const rainbowBrush = document.getElementById('rainbow-toggle');
 const brushes = [blackBrush, colorBrush, rainbowBrush];
 
-const shaderToggle = document.getElementById('shader-toggle');
 const solidToggle = document.getElementById('solid-toggle');
-const toggles = [shaderToggle, solidToggle];
+const dragToggle = document.getElementById('drag-toggle');
 
 const pens = document.querySelectorAll('.pen-setting');
 
@@ -30,12 +29,15 @@ let bgColor = colorBackgroundInput.value;
 
 let size = sizeSlider.value;
 
+let solidState = true;
+let defaultDraw = true;
+
 blackBrush.addEventListener('click', handleBlackBrushClick);
 colorBrush.addEventListener('click', handleColorBrushClick);
 rainbowBrush.addEventListener('click', handleRainbowBrushClick);
 
-shaderToggle.addEventListener('click', handleShaderClick);
 solidToggle.addEventListener('click', handleSolidClick);
+dragToggle.addEventListener('click', handleDragClick);
 
 colorBrushInput.addEventListener('input', handleColorBrushInput);
 colorBrushInput.addEventListener('change', handleColorBrushChange);
@@ -46,6 +48,20 @@ applyButton.addEventListener('click', handleApplyClick);
 mid.addEventListener('click', togglePen);
 
 sizeSlider.addEventListener('input', handleSizeInput);
+
+pens.forEach(p => p.addEventListener('click', handlePenClick));
+
+function handlePenClick(e) {
+  const penName = ['brush', 'eraser', 'none'];
+
+  mid.classList.remove(penName[penType]);
+
+  penType = [...pens].indexOf(e.target);
+
+  mid.classList.add(penName[penType]);
+
+  updatePenDisplay();
+}
 
 function handleSizeInput(e) {
   document.getElementById('size-text').textContent = sizeSlider.value;
@@ -72,15 +88,14 @@ function updatePenDisplay() {
 }
 
 function togglePen() {
-  const pens = ['brush', 'eraser', 'none'];
-  mid.classList.remove(pens[penType]);
+  const penName = ['brush', 'eraser', 'none'];
+  mid.classList.remove(penName[penType]);
 
   penType++;
   penType %= 3;
 
-  mid.classList.add(pens[penType]);
+  mid.classList.add(penName[penType]);
 
-  console.log(mid.classList);
   updatePenDisplay();
 }
 
@@ -106,14 +121,22 @@ function handleRainbowBrushClick(e) {
   applyBrushBorder();
 }
 
-function handleShaderClick(e) {
-  currentToggle = shaderToggle;
-  applyToggleBorder();
+function handleSolidClick(e) {
+  solidState = !solidState;
+  if (solidState) document.getElementById('solid-container').style.color = '#000000';
+  else document.getElementById('solid-container').style.color = '#808080';
 }
 
-function handleSolidClick(e) {
-  currentToggle = solidToggle;
-  applyToggleBorder();
+function handleDragClick(e) {
+  defaultDraw = !defaultDraw;
+  const instructions = document.querySelector('.instruction-text');
+  if (defaultDraw) {
+    document.getElementById('drag-container').style.color = '#808080';
+    instructions.textContent = "Click anywhere within the center area to toggle pen mode";
+  } else {
+    document.getElementById('drag-container').style.color = '#000000';
+    instructions.textContent = "Click and drag to draw";
+  }
 }
 
 function handleColorBrushInput(e) {
@@ -124,11 +147,6 @@ function applyBrushBorder() {
   brushes.forEach(b => b.setAttribute('style', 'margin: 3px; border: 0px;'));
   currentBrush.setAttribute('style', 'margin: 0px; border: 3px solid #808080;')
   colorBrush.style.color = colorBrushInput.value;
-}
-
-function applyToggleBorder() {
-  toggles.forEach(t => t.setAttribute('style', 'margin: 3px; border: 0px;'));
-  currentToggle.setAttribute('style', 'margin: 0px; border: 3px solid #808080;')
 }
 
 function parseColor(c) {
@@ -232,7 +250,6 @@ function populateGrid(n) {
 
 
 applyBrushBorder();
-applyToggleBorder();
 
 populateGrid(16);
 
