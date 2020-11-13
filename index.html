@@ -15,6 +15,9 @@
       <div id="instructions">
         <p class="instruction-text">Click anywhere within the center area to toggle pen mode</p>
       </div>
+      <div id="fill-container">
+        <button type="button" name="fill-button" id="fill-button" class="clickable">Fill empty squares</button>
+      </div>
       <div id="left-settings">
         <div id="grid-toggle-container">
           <div class="dotted-grid-container">
@@ -76,15 +79,16 @@
         </div>
       </div>
       <div id="toggles">
-        <div id="drag-container" class="icon-container">
-          <i class="fas fa-mouse clickable" id="drag-toggle"></i>
-        </div>
         <div id="solid-container" class="icon-container">
           <i class="fas fa-paint-brush clickable" id="solid-toggle"></i>
         </div>
+        <div id="drag-container" class="icon-container">
+          <i class="fas fa-mouse clickable" id="drag-toggle"></i>
+        </div>
+
       </div>
     </div>
-    <script src="scripts.js">
+    <script type="module" src="scripts/main.js">
 
     </script>
   </body>

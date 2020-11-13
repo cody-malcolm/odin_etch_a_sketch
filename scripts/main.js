@@ -18,6 +18,7 @@ const colorBackgroundInput = document.getElementById('bg-color');
 
 const resetButton = document.getElementById('reset-button');
 const applyButton = document.getElementById('apply-button');
+const fillButton = document.getElementById('fill-button');
 
 const grid = document.getElementById('grid');
 const mid = document.getElementById('middle');
@@ -38,7 +39,7 @@ let size = sizeSlider.value;
 let solidState = true;
 let defaultDraw = true;
 
-let dashedGrid = false;
+let dottedGrid = false;
 let solidGrid = false;
 
 blackBrush.addEventListener('click', handleBlackBrushClick);
@@ -56,6 +57,7 @@ colorBrushInput.addEventListener('change', handleColorBrushChange);
 
 resetButton.addEventListener('click', handleResetClick);
 applyButton.addEventListener('click', handleApplyClick);
+fillButton.addEventListener('click', handleFillClick);
 
 mid.addEventListener('click', togglePen);
 
@@ -64,23 +66,37 @@ sizeSlider.addEventListener('input', handleSizeInput);
 pens.forEach(p => p.addEventListener('click', handlePenClick));
 
 function updateGridToggleDisplay() {
-  dottedGridToggle.style.color = (dashedGrid) ? '#000000' : '#808080';
+  dottedGridToggle.style.color = (dottedGrid) ? '#000000' : '#808080';
   solidGridToggle.style.color = (solidGrid) ? '#000000' : '#808080';
+}
+
+function updateGridlines() {
+  let border = "none";
+
+  if (solidGrid) {
+    border = "1px solid black";
+  } else if (dottedGrid) {
+    border = "1px dotted black";
+  }
+
+  document.querySelectorAll('.square').forEach(s => s.style.border = border);
+
+  console.log("called");
 }
 
 function handleDottedGridClick() {
   solidGrid = false;
-  dashedGrid = !dashedGrid;
+  dottedGrid = !dottedGrid;
 
-  document.querySelectorAll('.square').forEach(s => s.style.border = `${(dashedGrid) ? "1px dotted black" : "none"}`);
+  updateGridlines();
   updateGridToggleDisplay();
 }
 
 function handleSolidGridClick() {
   solidGrid = !solidGrid;
-  dashedGrid = false;
+  dottedGrid = false;
 
-  document.querySelectorAll('.square').forEach(s => s.style.border = `${(solidGrid) ? "1px solid black" : "none"}`);
+  updateGridlines();
   updateGridToggleDisplay();
 }
 
@@ -226,6 +242,14 @@ function handleMouseDown(e) {
   }
 }
 
+function handleFillClick(e) {
+  document.querySelectorAll('.square').forEach(s => {
+    if (new Color(s.style.backgroundColor).checkIfSame(bgColor)) {
+      s.style.backgroundColor = (currentBrush !== rainbowBrush) ? penColor.toString() : Color.getRandColor().toString();
+    }
+  });
+}
+
 function populateGrid(n) {
   const square = document.createElement('div');
   square.classList.add('square');
@@ -239,6 +263,8 @@ function populateGrid(n) {
 
   squares.forEach(s => s.addEventListener('mouseenter', handleMouseEnter));
   squares.forEach(s => s.addEventListener('mousedown', handleMouseDown));
+
+  updateGridlines();
 }
 
 

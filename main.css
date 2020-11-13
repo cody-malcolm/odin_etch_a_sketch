@@ -188,6 +188,11 @@ button:hover {
   position: relative;
 }
 
+#fill-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 #brush-color {
   position: absolute;
   bottom: 0%;
