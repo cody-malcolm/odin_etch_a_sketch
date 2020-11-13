@@ -37,6 +37,7 @@ p, label, span, button {
 #buttons {
   display: flex;
   justify-content: flex-end;
+  width: min-content;
 }
 
 #apply-button {
@@ -81,7 +82,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
 }
 
 .board-text {
@@ -105,7 +106,7 @@ button:hover {
 }
 
 #instructions {
-  width: 80%;
+  width: 90%;
   height: 6em;
   display: flex;
   align-items: center;
@@ -125,16 +126,17 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   background-color: hsl(60, 10%, 75%);
 }
 
 #leftside {
   border-radius: 25% 0 0 25%;
+  align-items: flex-end;
 }
 
 #rightside {
   border-radius: 0 25% 25% 0;
+  align-items: flex-start;
 }
 
 #rainbow-toggle {
@@ -143,20 +145,30 @@ button:hover {
   -webkit-background-clip: text;
 }
 
-.title, #toggles {
+.title {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#toggles {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: min-content;
 }
 
 #left-settings, #palette-container, #pen-display {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: min-content;
 }
+
 
 #right-settings {
   display: flex;
+  width: min-content;
 }
 
 #bg-color-container, #black-brush-container, #solid-container, #grid-toggle-container,
@@ -169,6 +181,7 @@ button:hover {
 
 #bg-color-container {
   margin-top: 2em;
+  width: 80%;
 }
 
 #color-brush-container {
