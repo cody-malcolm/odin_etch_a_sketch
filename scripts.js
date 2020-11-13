@@ -6,6 +6,9 @@ const brushes = [blackBrush, colorBrush, rainbowBrush];
 const solidToggle = document.getElementById('solid-toggle');
 const dragToggle = document.getElementById('drag-toggle');
 
+const dottedGridToggle = document.getElementById('dotted-gridlines');
+const solidGridToggle = document.getElementById('solid-gridlines');
+
 const pens = document.querySelectorAll('.pen-setting');
 
 const colorBrushInput = document.getElementById('brush-color');
@@ -32,12 +35,18 @@ let size = sizeSlider.value;
 let solidState = true;
 let defaultDraw = true;
 
+let dashedGrid = false;
+let solidGrid = false;
+
 blackBrush.addEventListener('click', handleBlackBrushClick);
 colorBrush.addEventListener('click', handleColorBrushClick);
 rainbowBrush.addEventListener('click', handleRainbowBrushClick);
 
 solidToggle.addEventListener('click', handleSolidClick);
 dragToggle.addEventListener('click', handleDragClick);
+
+dottedGridToggle.addEventListener('click', handleDottedGridClick);
+solidGridToggle.addEventListener('click', handleSolidGridClick);
 
 colorBrushInput.addEventListener('input', handleColorBrushInput);
 colorBrushInput.addEventListener('change', handleColorBrushChange);
@@ -50,6 +59,27 @@ mid.addEventListener('click', togglePen);
 sizeSlider.addEventListener('input', handleSizeInput);
 
 pens.forEach(p => p.addEventListener('click', handlePenClick));
+
+function updateGridToggleDisplay() {
+  dottedGridToggle.style.color = (dashedGrid) ? '#000000' : '#808080';
+  solidGridToggle.style.color = (solidGrid) ? '#000000' : '#808080';
+}
+
+function handleDottedGridClick() {
+  solidGrid = false;
+  dashedGrid = !dashedGrid;
+
+  document.querySelectorAll('.square').forEach(s => s.style.border = `${(dashedGrid) ? "1px dotted black" : "none"}`);
+  updateGridToggleDisplay();
+}
+
+function handleSolidGridClick() {
+  solidGrid = !solidGrid;
+  dashedGrid = false;
+
+  document.querySelectorAll('.square').forEach(s => s.style.border = `${(solidGrid) ? "1px solid black" : "none"}`);
+  updateGridToggleDisplay();
+}
 
 function handlePenClick(e) {
   const penName = ['brush', 'eraser', 'none'];
@@ -187,9 +217,9 @@ function sameColor(a, b) {
 }
 
 function getColor(oldColor) {
-  if (penType == 1 && currentToggle === solidToggle) return bgColor;
+  if (penType == 1 && solidState) return bgColor;
 
-  if (currentToggle === solidToggle) {
+  if (solidState) {
     if (currentBrush !== rainbowBrush) return penColor;
     return randColor();
   }

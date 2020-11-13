@@ -5,10 +5,6 @@
   src: url(fonts/Juicebox.otf);
 }
 
-div {
-  border: 1px dotted black;
-}
-
 body {
   display: flex;
   justify-content: center;
@@ -163,7 +159,7 @@ button:hover {
   display: flex;
 }
 
-#bg-color-container, #black-brush-container, #solid-container,
+#bg-color-container, #black-brush-container, #solid-container, #grid-toggle-container,
 #color-brush-container, #rainbow-brush-container, #drag-container  {
   display: flex;
   justify-content: center;
@@ -195,14 +191,14 @@ button:hover {
   height: 2em;
 }
 
-#drag-container {
+#drag-container, #dotted-gridlines, #solid-gridlines {
   color: #808080;
 }
 
 .fas, .far {
   font-size: 5em;
   border-radius: 50%;
-  padding: 0.25em;
+  padding: 0.2em;
   margin: 3px;
 }
 
