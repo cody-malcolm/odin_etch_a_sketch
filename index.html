@@ -21,19 +21,19 @@
           <span class="board-text" id="size-text">16</span>
         </div>
         <div class="size-container">
-          <input type="range" min="8" max="100" value="16" id="size-slider" name="size-slider">
+          <input type="range" min="8" max="100" value="16" id="size-slider" name="size-slider" class="clickable">
         </div>
         <div id="bg-color-container">
           <label for="bg-color" class="board-text">Color:</label>
-          <input type="color" id="bg-color" value="#FFFFFF" name="bg-color">
+          <input type="color" id="bg-color" value="#FFFFFF" name="bg-color" class="clickable">
         </div>
       </div>
       <div id="buttons">
-        <button type="button" name="reset-button" id="reset-button">Clear</button>
-        <button type="button" name="apply-button" id="apply-button">Apply</button>
+        <button type="button" name="reset-button" id="reset-button" class="clickable">Clear</button>
+        <button type="button" name="apply-button" id="apply-button" class="clickable">Apply</button>
       </div>
     </div>
-    <div id="middle">
+    <div id="middle" class="brush">
       <div id="grid">
 
       </div>
@@ -45,14 +45,14 @@
       <div id="right-settings">
         <div id="palette-container">
           <div id="black-brush-container" class="icon-container">
-            <i class="fas fa-palette" id="black-toggle" data-checked="true"></i>
+            <i class="fas fa-palette clickable" id="black-toggle"></i>
           </div>
           <div id="color-brush-container" class="icon-container">
             <input type="color" id="brush-color" value="#BB0000" name="brush-color">
-            <i class="fas fa-palette" id="color-toggle" data-checked="false"></i>
+            <i class="fas fa-palette clickable" id="color-toggle"></i>
           </div>
           <div id="rainbow-brush-container" class="icon-container">
-            <i class="fas fa-palette" id="rainbow-toggle" data-checked="false"></i>
+            <i class="fas fa-palette clickable" id="rainbow-toggle"></i>
           </div>
         </div>
         <div id="pen-display">
@@ -69,10 +69,10 @@
       </div>
       <div id="toggles">
         <div id="shader-container" class="icon-container">
-          <i class="fas fa-paint-brush" id="shader-toggle" data-checked="false"></i>
+          <i class="fas fa-paint-brush clickable" id="shader-toggle"></i>
         </div>
         <div id="solid-container" class="icon-container">
-          <i class="fas fa-paint-brush" id="solid-toggle" data-checked="true"></i>
+          <i class="fas fa-paint-brush clickable" id="solid-toggle"></i>
         </div>
       </div>
     </div>
