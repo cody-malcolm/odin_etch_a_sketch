@@ -1,0 +1,241 @@
+/* Cursors from: https://fontawesome.com/license */
+
+@font-face {
+  font-family: "Juicebox";
+  src: url(fonts/Juicebox.otf);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(60, 10%, 50%);
+}
+
+h1 {
+  text-align: center;
+  font-size: 5em;
+  color: hsl(60, 10%, 20%);
+  font-family: "Juicebox";
+}
+
+p, label, span, button {
+  font-size: 1.5em;
+  color: hsl(60, 10%, 20%);
+  font-family: "Juicebox";
+}
+
+#right-title {
+  padding-right: 0.25em;
+}
+
+#left-title {
+  padding-left: 0.25em;
+}
+
+#buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: min-content;
+}
+
+#apply-button {
+  margin-left: 0.5em;
+}
+
+button {
+  padding: 0 1em;
+  border: 2px solid hsl(60, 10%, 20%);
+  background-color: hsl(60, 10%, 75%);
+  border-radius: 10%;
+}
+
+button:hover {
+  background-color: hsl(60, 10%, 88%);
+}
+
+#size-slider {
+  height: 0.5em;
+  width: 100%;
+  -webkit-appearance: none;
+  background: hsl(60, 10%, 65%);
+}
+
+#size-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.5em;
+  height: 1.5em;
+  background: hsl(60, 10%, 30%);
+  cursor: pointer;
+}
+
+#size-slider::-moz-range-thumb {
+  width: 0.5em;
+  height: 1.5em;
+  background: hsl(60, 10%, 30%);
+  cursor: pointer;
+}
+
+.size-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.board-text {
+  margin-right: 1em;
+}
+
+#middle {
+  height: 90vh;
+  width: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(60, 10%, 75%);
+  border-radius: 5%;
+}
+
+#grid {
+  height: 90%;
+  width: 90%;
+  display: grid;
+}
+
+#instructions {
+  width: 90%;
+  height: 6em;
+  display: flex;
+  align-items: center;
+}
+
+.instruction-text {
+  text-align: justify;
+}
+
+#left-settings > * {
+  margin: 0.5em 0;
+}
+
+#leftside, #rightside {
+  height: 80vh;
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: hsl(60, 10%, 75%);
+}
+
+#leftside {
+  border-radius: 25% 0 0 25%;
+  align-items: flex-end;
+}
+
+#rightside {
+  border-radius: 0 25% 25% 0;
+  align-items: flex-start;
+}
+
+#rainbow-toggle {
+  background: linear-gradient(to bottom left, blue, purple, red, orange, yellow, green, blue, purple, red);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#toggles {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: min-content;
+}
+
+#left-settings, #palette-container, #pen-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min-content;
+}
+
+
+#right-settings {
+  display: flex;
+  width: min-content;
+}
+
+#bg-color-container, #black-brush-container, #solid-container, #grid-toggle-container,
+#color-brush-container, #rainbow-brush-container, #drag-container  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min-content;
+}
+
+#bg-color-container {
+  margin-top: 2em;
+  width: 80%;
+}
+
+#color-brush-container {
+  position: relative;
+}
+
+#fill-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#brush-color {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 0px;
+  height: 0px;
+  z-index: -1;
+}
+
+#bg-color {
+  background-color: hsl(60, 10%, 75%);
+  border: none;
+  width: 4em;
+  height: 2em;
+}
+
+#drag-container, #dotted-gridlines, #solid-gridlines {
+  color: #808080;
+}
+
+.fas, .far {
+  font-size: 5em;
+  border-radius: 50%;
+  padding: 0.2em;
+  margin: 3px;
+}
+
+.pen-setting {
+  color: #808080;
+}
+
+.brush:hover {
+  cursor: url(cursors/brush.png), pointer;
+}
+
+.eraser:hover {
+  cursor: url(cursors/eraser.png), pointer;
+}
+
+.none:hover {
+  cursor: url(cursors/none.png), pointer;
+}
+
+.clickable:hover {
+  cursor: pointer;
+}
