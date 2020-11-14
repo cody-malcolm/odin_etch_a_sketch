@@ -181,9 +181,7 @@ button:hover {
   position: absolute;
   bottom: 0%;
   left: 0%;
-  width: 0px;
-  height: 0px;
-  z-index: -1;
+  visibility: hidden;
 }
 
 #bg-color {
