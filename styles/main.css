@@ -2,28 +2,61 @@
 
 @font-face {
   font-family: "Juicebox";
-  src: url(fonts/Juicebox.otf);
+  src: url(../fonts/Juicebox.otf);
 }
 
-body {
+body, #middle, #instructions, .size-container, .title {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#bg-color-container, #black-brush-container, #solid-container, #grid-toggle-container,
+#color-brush-container, #rainbow-brush-container, #drag-container  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min-content;
+}
+
+#buttons, #leftside, #rightside, #toggles, #left-settings, #right-settings,
+#palette-container, #pen-display, #fill-container {
+  display: flex;
+  width: min-content;
+}
+
+#fill-button {
+  white-space: nowrap;
+}
+
+#fill-container, #buttons {
+  justify-content: flex-end;
+}
+
+#drag-container, .grid-toggle, .pen-setting {
+  color: #808080;
+}
+
+h1, p, label, span, button {
+  color: hsl(60, 10%, 20%);
+  font-family: "Juicebox";
+}
+
+body {
   height: 100vh;
   background-color: hsl(60, 10%, 50%);
 }
 
-h1 {
-  text-align: center;
+h1, .fas, .far {
   font-size: 5em;
-  color: hsl(60, 10%, 20%);
-  font-family: "Juicebox";
+}
+
+h1, #instruction-text {
+  text-align: center;
 }
 
 p, label, span, button {
   font-size: 1.5em;
-  color: hsl(60, 10%, 20%);
-  font-family: "Juicebox";
 }
 
 #right-title {
@@ -32,12 +65,6 @@ p, label, span, button {
 
 #left-title {
   padding-left: 0.25em;
-}
-
-#buttons {
-  display: flex;
-  justify-content: flex-end;
-  width: min-content;
 }
 
 #apply-button {
@@ -79,9 +106,6 @@ button:hover {
 }
 
 .size-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
@@ -92,9 +116,6 @@ button:hover {
 #middle {
   height: 90vh;
   width: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: hsl(60, 10%, 75%);
   border-radius: 5%;
 }
@@ -108,12 +129,6 @@ button:hover {
 #instructions {
   width: 90%;
   height: 6em;
-  display: flex;
-  align-items: center;
-}
-
-.instruction-text {
-  text-align: justify;
 }
 
 #left-settings > * {
@@ -122,8 +137,6 @@ button:hover {
 
 #leftside, #rightside {
   height: 80vh;
-  width: min-content;
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-color: hsl(60, 10%, 75%);
@@ -145,38 +158,14 @@ button:hover {
   -webkit-background-clip: text;
 }
 
-.title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #toggles {
-  display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: min-content;
 }
 
 #left-settings, #palette-container, #pen-display {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  width: min-content;
-}
-
-
-#right-settings {
-  display: flex;
-  width: min-content;
-}
-
-#bg-color-container, #black-brush-container, #solid-container, #grid-toggle-container,
-#color-brush-container, #rainbow-brush-container, #drag-container  {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: min-content;
 }
 
 #bg-color-container {
@@ -186,11 +175,6 @@ button:hover {
 
 #color-brush-container {
   position: relative;
-}
-
-#fill-container {
-  display: flex;
-  justify-content: flex-end;
 }
 
 #brush-color {
@@ -209,31 +193,22 @@ button:hover {
   height: 2em;
 }
 
-#drag-container, #dotted-gridlines, #solid-gridlines {
-  color: #808080;
-}
-
 .fas, .far {
-  font-size: 5em;
   border-radius: 50%;
   padding: 0.2em;
   margin: 3px;
 }
 
-.pen-setting {
-  color: #808080;
-}
-
 .brush:hover {
-  cursor: url(cursors/brush.png), pointer;
+  cursor: url(../cursors/brush.png), pointer;
 }
 
 .eraser:hover {
-  cursor: url(cursors/eraser.png), pointer;
+  cursor: url(../cursors/eraser.png), pointer;
 }
 
 .none:hover {
-  cursor: url(cursors/none.png), pointer;
+  cursor: url(../cursors/none.png), pointer;
 }
 
 .clickable:hover {
